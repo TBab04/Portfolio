@@ -6,8 +6,8 @@ Welcome to my coding journey! Delve into a world where creativity meets logic, a
 
 Within these pages, you'll discover a diverse collection of projects spanning various domains, from algorithmic puzzles to real-world applications. Each project reflects my commitment to excellence, meticulous attention to detail, and relentless pursuit of innovation.
 
-Explore the depths of my expertise in Java, Python, and beyond, as I navigate through data structures, algorithms, machine learning, web development, and more. Whether it's building robust software systems, creating engaging user experiences, or unraveling the mysteries of artificial intelligence, I approach every challenge with enthusiasm and determination.
+Explore the depths of my expertise in Java, C++, and beyond as I navigate through data structures, algorithms, machine learning, web development, and more. Whether it's building robust software systems, creating engaging user experiences, or unraveling the mysteries of artificial intelligence, I approach every challenge with enthusiasm and determination.
 
-Join me on this exhilarating journey through the realms of programming and problem-solving. Together, let's turn ideas into reality and pave the way for a future shaped by technology.
+Join me on this exhilarating journey through the realms of programming and problem-solving. Let's turn ideas into reality and pave the way for a future shaped by technology.
 
 Let's code the future, one project at a time.
