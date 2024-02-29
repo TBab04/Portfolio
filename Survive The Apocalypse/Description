@@ -1,0 +1,10 @@
+This Java program utilizes Dijkstra's Algorithm to find the shortest path from Chicago to each city in a weighted graph.
+It simulates navigating through a post-apocalyptic world where different cities are connected by roads with varying distances.
+
+Features:
+Graph Representation: It uses a custom graph implementation (Graph) to represent the connections between cities and the distances between them.
+Dijkstra's Algorithm: The program employs Dijkstra's Algorithm to find the shortest path from Chicago to each city.
+Weighted Graph: The graph is weighted, where each edge between cities represents the distance traveled to reach the destination.
+Input Data: The distances between cities are provided as input data and are used to build the graph.
+Path Reconstruction: After running Dijkstra's Algorithm, the program reconstructs the shortest paths from Chicago to each city.
+Output: It displays the shortest paths from Chicago to each city, along with the total distance traveled.
