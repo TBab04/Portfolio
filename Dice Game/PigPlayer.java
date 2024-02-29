@@ -1,37 +1,7 @@
 /*
 * @author (Tyler Babcock)
 * <p> (PigPlayer)
-* <p> (Project 3)
 * <p> (Uses methods that keep track of the total and round scores and keeps track of pig values)
-*/
-/*
-	The rules to the dice game Pig
-
-	Number of Players: 2 + 
-	Game Duration: < 30 mins
-	Players Aged: 6 +
-
-	You will need: 2 dice and paper to score on.
-
-	Play begins with the selection of a target game score.
-	The users then decide which single die value will be
-	the "Pig" value that enhances scoring.
-
-	To Play: Two players take turns to roll both dice, 
-	they can roll as many times as they choose in one turn.
-	
-	A player scores the sum of the two dice thrown and 
-	gradually reaches a higher score as the player continues to roll.
-
-	If a single number "Pig" value is thrown on either die, the score 
-	for that whole turn is lost. However a double "Pig" value counts as 25.
-	The first player to reach or surpass the target score wins unless the other 
-	player scores more in the same round. This means that everyone in 
-	the game will the same number of turns.
-	
-	The game may NOT end in a tie. If both players have reached the goal score 
-	at the end of a round and the score is tied then another round must be played.
-
 */
 
 // this class manages the state of the dice and the scoring
