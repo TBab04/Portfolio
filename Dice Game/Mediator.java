@@ -1,7 +1,6 @@
 /*
 * @author (Tyler Babcock)
 * <p> (Mediator)
-* <p> (Project 3)
 * <p> (Controls and runs most of the overall pig die game)
 */
 
@@ -11,9 +10,7 @@
 	Number of Players: 2 + 
 	Game Duration: < 30 mins
 	Players Aged: 6 +
-
-	You will need: 2 dice and paper to score on.
-
+ 
 	Play begins with the selection of a target game score.
 	The users then decide which single die value will be
 	the "Pig" value that enhances scoring.
