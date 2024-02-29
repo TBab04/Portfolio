@@ -1,0 +1,144 @@
+
+/* 
+* @author (Tyler Babcock) 
+* <p> (program that accepts the price for an item, an amount of payment then computes the change 
+required to repay a customer.) 
+*/
+import java.util.Scanner;
+
+public class CashRegister
+{
+	public static void main(String[] args)
+	{
+		// Initializing constants
+		final double TAXRATE = 0.0835;
+		final double SURCHARGE = 0.05;
+		final int MAXPRICE = 500;
+		final int MINSURCHARGE = 18;
+		final int HUNDRED = 10000;
+		final int FIFTY = 5000;
+		final int TWENTY = 2000;
+		final int TEN = 1000;
+		final int FIVE = 500;
+		final int ONE = 100;
+		final int QUARTER = 25;
+		final int DIME = 10;
+		final int NICKEL = 5;
+		final int PENNY = 1;
+
+		// Initializing variables
+		int oneHundredDollars;
+		int fiftyDollars;
+		int twentyDollars;
+		int tenDollars;
+		int fiveDollars;
+		int oneDollar;
+		int quarters;
+		int dimes;
+		int nickels;
+		int pennies;
+		double surTax;
+		double inputVal;
+		double surVar;
+		double secVar;
+		int trdVar;
+		double priVal;
+		double primeTax;
+		int inTax;
+		double finTax;
+		double taxNum;
+		double paymentVal;
+		double change;
+		int changeCalc;
+		Scanner kb = new Scanner(System.in);
+		do
+		{
+			do
+			{
+				// asks user for value less than or equal to 500
+				System.out.print("Enter cost of item (enter 0 or negative value to quit; max is $500.00): ");
+				inputVal = kb.nextDouble();
+			} while (inputVal > MAXPRICE);
+			if (inputVal > 0)
+			{
+				// Calculates price if surcharge applies
+				if (inputVal < MINSURCHARGE)
+				{
+					priVal = (inputVal * SURCHARGE);
+					secVar = priVal * 100;
+					trdVar = (int) secVar;
+					surVar = (double) trdVar / 100;
+					System.out.printf("Surcharge of $%.2f added. ", surVar);
+
+					// Applies tax to the amount entered and outputs amount owed
+					primeTax = (inputVal * TAXRATE) + inputVal;
+					finTax = primeTax * 100;
+					inTax = (int) finTax;
+					taxNum = (double) inTax / 100;
+					surTax = taxNum + surVar;
+					System.out.printf("\nAmount due (with 8.35 percent tax): $%.2f", surTax);
+				} else
+				{
+					// Applies tax to the amount entered and outputs amount owed
+					primeTax = (inputVal * TAXRATE) + inputVal;
+					finTax = primeTax * 100;
+					inTax = (int) finTax;
+					surTax = (double) inTax / 100;
+					System.out.printf("Amount due (with 8.35 percent tax): $%.2f", surTax);
+
+				}
+				do
+				{
+					// Asks user for payment
+					System.out.print("\nPlease enter payment amount: ");
+					paymentVal = kb.nextDouble();
+
+				} while (paymentVal < surTax);
+				// Calculates if exact payment is given
+				if (paymentVal == surTax)
+				{
+					System.out.print("Thanks for exact payment\n");
+				} else
+				{
+					// Calculates the change that will be given back
+					change = paymentVal - surTax;
+					System.out.printf("Change due back $%.2f", change);
+					changeCalc = (int) (Math.round(change * 100));
+					oneHundredDollars = Math.round((int) changeCalc / HUNDRED);
+					changeCalc = changeCalc % HUNDRED;
+					fiftyDollars = Math.round((int) changeCalc / FIFTY);
+					changeCalc = changeCalc % FIFTY;
+					twentyDollars = Math.round((int) changeCalc / TWENTY);
+					changeCalc = changeCalc % TWENTY;
+					tenDollars = Math.round((int) changeCalc / TEN);
+					changeCalc = changeCalc % TEN;
+					fiveDollars = Math.round((int) changeCalc / FIVE);
+					changeCalc = changeCalc % 500;
+					oneDollar = Math.round((int) changeCalc / ONE);
+					changeCalc = changeCalc % FIVE;
+					quarters = Math.round((int) changeCalc / QUARTER);
+					changeCalc = changeCalc % QUARTER;
+					dimes = Math.round((int) changeCalc / DIME);
+					changeCalc = changeCalc % DIME;
+					nickels = Math.round((int) changeCalc / NICKEL);
+					changeCalc = changeCalc % NICKEL;
+					pennies = Math.round((int) changeCalc / PENNY);
+
+					// Outputs the type of dollar or coin that will be given back
+					System.out.printf(
+							"\n$100: %d $50: %d $20: %d $10: %d $5: %d $1: %d \r\n"
+									+ "$0.25: %d $0.10: %d $0.05: %d $0.01: %d \n\n",
+							oneHundredDollars, fiftyDollars, twentyDollars, tenDollars, fiveDollars, oneDollar,
+							quarters, dimes, nickels, pennies);
+				}
+
+				// Prints out Done if user inputs 0 or less
+			} else
+			{
+				System.out.println("\nDone. ");
+			}
+
+		} while (inputVal > 0);
+
+	}
+}
