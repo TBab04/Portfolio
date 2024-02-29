@@ -1,0 +1,333 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+// Template so we can handle any datatype!
+template<typename T>
+struct Node {
+    T data;
+    Node* prev;
+    Node* next;
+
+    Node(T data) : data(data), prev(nullptr), next(nullptr) {}
+};
+
+// Template so we can handle any datatype!
+template<typename T>
+class DoublyLinkedList {
+    Node<T>* head;
+    Node<T>* tail;
+    int size = 0;
+
+public:
+    DoublyLinkedList() : head(nullptr), tail(nullptr) {}
+
+    void append(T data) {
+        Node<T>* newNode = new Node<T>(data);
+        if(head == nullptr) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail->next = newNode;
+            newNode->prev = tail;
+            tail = newNode;
+        }
+        size++;
+    }
+
+    Node<T>* getHead() {
+        return head;
+    }
+
+    void display() {
+        Node<T>* current = head;
+        while(current != nullptr) {
+            cout << current->data << "<->";
+            current = current->next;
+        }
+        cout << endl;
+    }
+    void setHead(Node<T>* newHead) {
+        head = newHead;
+    }
+
+    T iterate(int value)
+    {
+        Node<T>* current = head;
+        for(int i = 0; i < value; ++i)
+        {
+            current = current->next;
+        }
+        return current->data;
+    }
+
+    int getSize()
+    {
+        return size;
+    }
+};
+
+template<typename T>
+void reverseDoublyLinkedList(DoublyLinkedList<T> &list) {
+    Node<T>* current = list.getHead();
+    Node<T>* temp = nullptr;
+
+    while(current != nullptr) {
+        temp = current->prev;
+        current->prev = current->next;
+        current->next = temp;
+        current = current->prev;
+    }
+
+    if(temp != nullptr) {
+        list.setHead(temp->prev);
+    }
+}
+
+template<typename T>
+struct QNode {
+    T data;
+    QNode<T> *next;
+};
+
+template<typename T>
+class Queue {
+private:
+    QNode<T> *front;
+    QNode<T> *rear;
+    int size;
+
+public:
+    Queue() : front(nullptr), rear(nullptr), size(0) {}
+
+    ~Queue() {
+        while (!isEmpty()) {
+            dequeue();
+        }
+    }
+
+    bool isEmpty() {
+        return size == 0;
+    }
+
+    void enqueue(T value) {
+        QNode<T> *newNode = new QNode<T>{value, nullptr};
+        if (isEmpty()) {
+            front = newNode;
+            rear = newNode;
+        } else {
+            rear->next = newNode;
+            rear = newNode;
+        }
+        size++;
+    }
+
+    T dequeue() {
+        if (isEmpty()) {
+            cerr << "Queue is empty, cannot remove" << endl;
+            return T();
+        }
+        T dataValue = front->data;
+        QNode<T> *temp = front;
+        front = front->next;
+        delete temp;
+        if (front == nullptr) {
+            rear = nullptr;
+        }
+        size--;
+        return dataValue;
+    }
+
+    T peek() {
+        if (isEmpty()) {
+            cerr << "Queue is empty, cannot peek" << endl;
+            return T();
+        }
+        return front->data;
+    }
+
+    int getSize() {
+        return size;
+    }
+};
+
+template<typename T>
+class Stack{
+    vector<T> elements;
+public:
+    void push(T element){
+        elements.push_back(element);
+    }
+    T pop(){
+        if(elements.empty()){
+            throw out_of_range("Stack is empty!");
+        }
+        T topElement = elements.back();
+        elements.pop_back();
+        return topElement;
+    }
+    T peek(){
+        if(elements.empty()){
+            throw out_of_range("Stack is empty!");
+        }
+        return elements.back();
+    }
+    bool isEmpty(){
+        return elements.empty();
+    }
+    int getSize(){
+        return elements.size();
+    }
+};
+
+bool isPalindromeLL (string pal)
+{
+    //Force Caps
+    transform(pal.begin(), pal.end(), pal.begin(), ::toupper);
+
+    //Check for an empty string
+    if(pal.empty())
+    {
+        cout << "Not a Palindrome" << endl;
+        return false;
+    }
+    //Create LLs
+    DoublyLinkedList<char> test1;
+    DoublyLinkedList<char> test2;
+
+    //Enter into first LL
+    for(int i = 0; i < pal.length(); ++i)
+    {
+        test1.append(pal[i]);
+    }
+
+    //Enter into second LL and reversed
+    for(int i = 0; i < pal.length(); ++i)
+    {
+        test2.append(pal[i]);
+    }
+    reverseDoublyLinkedList(test2);
+
+    //Check if same values in LL
+    for(int i = 0; i < test1.getSize(); ++i)
+    {
+        if(test1.iterate(i) != test2.iterate(i))
+        {
+            cout << pal <<  " is not a Palindrome" << endl;
+            return false;
+        }
+    }
+
+    //If no chars did not match then return true
+    cout << pal << " is a Palindrome" << endl;
+    return true;
+}
+
+bool isPalindromeSQ(string pal)
+{
+    //Force Caps
+    transform(pal.begin(), pal.end(), pal.begin(), ::toupper);
+
+    //Check for an empty string
+    if(pal.empty())
+    {
+        cout << "Not a Palindrome" << endl;
+        return false;
+    }
+
+    //Create Queue and Stack
+    Queue<char> test1;
+    Stack<char> test2;
+
+    //Fill Queue
+    for(int i = 0; i < pal.length(); ++i)
+    {
+        test1.enqueue(pal[i]);
+    }
+
+    //Fill Stack
+    for(int i = 0; i < pal.length(); ++i)
+    {
+        test2.push(pal[i]);
+    }
+
+    //Move through both the Queue and Stack comparing values
+    for(int i = 0; i < pal.length(); ++i)
+    {
+        char t1 = test1.dequeue();
+        char t2 = test2.pop();
+
+        if(t1 != t2)
+        {
+            cout << pal <<  " is not a Palindrome" << endl;
+            return false;
+        }
+    }
+
+    //If no chars did not match then return true
+    cout << pal << " is a Palindrome" << endl;
+    return true;
+}
+
+int main()
+{
+    string p1 = "rabooar";
+    isPalindromeLL(p1);
+    isPalindromeSQ(p1);
+
+    cout << endl << endl << endl;
+
+    string p2 = "RaCeCaR";
+    isPalindromeLL(p2);
+    isPalindromeSQ(p2);
+
+    cout << endl << endl << endl;
+
+    string p3 = "tacocat";
+    isPalindromeLL(p3);
+    isPalindromeSQ(p3);
+
+    cout << endl << endl << endl;
+
+    string p4 = "TACOCAT";
+    isPalindromeLL(p4);
+    isPalindromeSQ(p4);
+
+    cout << endl << endl << endl;
+
+    string p5 = "puppies";
+    isPalindromeLL(p5);
+    isPalindromeSQ(p5);
+
+    cout << endl << endl << endl;
+
+    string p6 = "101";
+    isPalindromeLL(p6);
+    isPalindromeSQ(p6);
+
+    cout << endl << endl << endl;
+
+    string p7 = " ";
+    isPalindromeLL(p7);
+    isPalindromeSQ(p7);
+
+    cout << endl << endl << endl;
+
+    string p8 = "";
+    isPalindromeLL(p8);
+    isPalindromeSQ(p8);
+
+    cout << endl << endl << endl;
+
+    string p9 = " the";
+    isPalindromeLL(p9);
+    isPalindromeSQ(p9);
+
+    cout << endl << endl << endl;
+
+    string p10 = "100";
+    isPalindromeLL(p10);
+    isPalindromeSQ(p10);
+}
