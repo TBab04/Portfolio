@@ -1,3 +1,23 @@
+/*
+This C++ program detects whether a given string is a palindrome or not. It implements two different methods for palindrome detection:
+
+Using Doubly Linked List (LL): The characters of the input string are stored in a doubly linked list, and then compared with the reversed version of the same string.
+Using Queue and Stack (SQ): The characters of the input string are stored in both a queue and a stack, and then compared by dequeuing from the queue and popping from the stack.
+Features:
+Template Classes: The program utilizes template classes to handle any data type.
+Doubly Linked List: It implements a doubly linked list to store characters for palindrome detection.
+Queue and Stack: It uses a queue and a stack to compare characters for palindrome detection.
+Case Insensitivity: The program converts all characters to uppercase to ensure case insensitivity in palindrome detection.
+Input Validation: It checks for empty strings and handles them appropriately.
+Testing: The program tests multiple cases to demonstrate palindrome detection functionality.
+*/
+
+/* 
+* @author (Tyler Babcock) 
+* <p> (Palindrome Checker
+* <p> (Runs the dice for the Pig Game) 
+*/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
