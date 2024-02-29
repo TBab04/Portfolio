@@ -1,0 +1,10 @@
+The Pig Dice Game is a Java program simulating a two-player game where players take turns rolling dice to accumulate points. 
+The game continues until one player reaches a predetermined goal score or until a tiebreaker round determines the winner. 
+This project showcases proficiency in Java programming, object-oriented design, user input handling, and game logic implementation.
+
+Features:
+Interactive Gameplay: Offers an interactive gameplay experience where players input the maximum score and Pig value, roll dice, and make decisions during their turns.
+Flexible Input Handling: Accommodates user input for game settings such as the maximum score and Pig value, ensuring a customizable gaming experience.
+Scoring Logic: Implements the scoring rules of the Pig dice game accurately, including handling Pig values, scoring bonuses, and determining winners.
+Modular Code Structure: Utilizes object-oriented principles to organize the code into classes such as EntryPoint, Mediator, PigPlayer, and Die, promoting code reusability and maintainability.
+Error Handling: Incorporates input validation and error handling mechanisms to ensure robustness and prevent runtime errors due to invalid user input.
