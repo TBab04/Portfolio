@@ -1,7 +1,6 @@
 /* 
 * @author (Tyler Babcock) 
 * <p> (OrganDonation) 
-* <p> (HW3) 
 * <p> (This code takes in names and organs needed and then matches them with donated organs) 
 */
 package Homework;
