@@ -1,7 +1,6 @@
 /*
 * @author 
 * <p> EntryPoint
-* <p> Project 3
 * <p>  
 */
 public class EntryPoint
