@@ -1,0 +1,12 @@
+The OrganDonation program is a command-line application designed to facilitate the matching of organ donors with recipients. 
+It allows users to register organs needed by recipients and organs donated by individuals, ultimately connecting donors with compatible recipients.
+
+Key Features:
+
+Menu-driven Interface: The program provides a user-friendly menu interface with options to register an organ needed, register an organ donated, or exit the program.
+
+Organ Registration: Users can input the name of the recipient and the type of organ needed, or the name of the donor and the organ being donated. This information is stored in an indexed list.
+
+Matching Algorithm: When registering an organ donation, the program checks the list of organ needs to find a match. If a match is found, it informs the user of the successful donation and removes the corresponding need from the list.
+
+Input Validation: The program includes robust input validation to handle invalid user inputs, ensuring a smooth user experience.
