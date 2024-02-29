@@ -1,7 +1,6 @@
 /* 
 * @author (Tyler Babcock) 
 * <p> (SurviveTheApocalypse) 
-* <p> (HW5) 
 * <p> (Takes a weighted graph and uses Dijkstra's Algorithm to find the shorted path from Chicago to each city) 
 */
 import java.util.ArrayList;
