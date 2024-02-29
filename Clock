@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class TimeInterpreter {
+    public static void main(String[] args) {
+        // Constants representing the number of seconds per minute, hour, and day
+        final int SECONDS_PER_MINUTE = 60;
+        final int SECONDS_PER_HOUR = 3600;
+        final int SECONDS_PER_DAY = 86400;
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the time in the form <hours> <minutes> <seconds>");
+
+        int hours = in.nextInt();
+        int minutes = in.nextInt();
+        int seconds = in.nextInt();
+
+        long totalSeconds = (hours * SECONDS_PER_HOUR) + (minutes * SECONDS_PER_MINUTE) + seconds;
+
+        // Handle negative times
+        String sign = "";
+        if (totalSeconds < 0) {
+            sign = "-";
+            totalSeconds = Math.abs(totalSeconds);
+        }
+
+        int days = (int) (totalSeconds / SECONDS_PER_DAY);
+        totalSeconds %= SECONDS_PER_DAY;
+        int hoursResult = (int) (totalSeconds / SECONDS_PER_HOUR);
+        totalSeconds %= SECONDS_PER_HOUR;
+        int minutesResult = (int) (totalSeconds / SECONDS_PER_MINUTE);
+        int secondsResult = (int) (totalSeconds % SECONDS_PER_MINUTE);
+
+        // Construct the simplified time string
+        String simplifiedTime = sign + (days > 0 ? days + ":" : "") + 
+                hoursResult + ":" + minutesResult + ":" + secondsResult;
+
+        System.out.println("The time consists of " + simplifiedTime + " seconds.");
+    }
+}
