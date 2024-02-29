@@ -2,7 +2,6 @@
 /* 
 * @author (Tyler Babcock) 
 * <p> (Die) 
-* <p> (Project 3) 
 * <p> (Runs the dice for the Pig Game) 
 */
 import java.util.Random;
