@@ -1,7 +1,6 @@
 /* 
 * @author (Tyler Babcock) 
 * <p> (OrderedListMerger) 
-* <p> (HW3) 
 * <p> (Takes names and puts them in alphabetical order) 
 */
 package Homework;
