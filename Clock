@@ -1,3 +1,20 @@
+/* 
+The Time Interpreter is a Java program designed to interpret a time input provided by the user in the form of hours, minutes, and seconds, and then calculate the total time in seconds. 
+It handles negative time inputs and provides a simplified representation of the time in seconds.
+
+Features:
+User Input Handling: Utilizes the Scanner class to accept user input for hours, minutes, and seconds.
+Time Calculation: Calculates the total time in seconds based on the input provided.
+Negative Time Handling: Detects negative time inputs and appropriately adjusts the sign for calculation.
+Simplified Time Representation: Constructs a simplified time string in the format days:hours:minutes:seconds and outputs it to the console.
+*/
+
+/* 
+* @author (Tyler Babcock) 
+* <p> (Clock) 
+* <p> (Takes user time inputs and gives analysis) 
+*/
+
 import java.util.Scanner;
 
 public class TimeInterpreter {
